@@ -299,10 +299,24 @@ const mockData: QuizData[] = [
                         emoji: '🔥',
                         groups: ['blockbuster', 'cinema']
                     },
-                    { value: 'comedy', label: 'Comedy', emoji: '😂', groups: ['home', 'friends'] },
-                    { value: 'drama', label: 'Drama', emoji: '🎭', groups: ['classic', 'partner'] },
-                    { value: 'horror', label: 'Horror', emoji: '👻', groups: ['alone', 'home'] },
-                    { value: 'romance', label: 'Romance', emoji: '💘', groups: ['partner'] },
+                    {
+                        value: 'comedy',
+                        label: 'Comedy',
+                        emoji: '😂',
+                        groups: ['home', 'friends']
+                    },
+                    {
+                        value: 'drama',
+                        label: 'Drama',
+                        emoji: '🎭',
+                        groups: ['classic', 'partner']
+                    },
+                    {
+                        value: 'horror',
+                        label: 'Horror',
+                        emoji: '👻',
+                        groups: ['alone', 'home']
+                    },
                     {
                         value: 'sci_fi',
                         label: 'Sci-Fi',
@@ -321,19 +335,107 @@ const mockData: QuizData[] = [
                         emoji: '🐭',
                         groups: ['family', 'home']
                     },
-                    { value: 'fantasy', label: 'Fantasy', emoji: '🧙‍♂️', groups: ['indie'] },
-                    { value: 'musical', label: 'Musical', emoji: '🎶', groups: ['classic'] },
+                    {
+                        value: 'fantasy',
+                        label: 'Fantasy',
+                        emoji: '🧙‍♂️',
+                        groups: ['indie', 'mobile']
+                    },
+                    {
+                        value: 'musical',
+                        label: 'Musical',
+                        emoji: '🎶',
+                        groups: ['classic', 'partner']
+                    },
                     {
                         value: 'historical',
                         label: 'Historical',
                         emoji: '🏰',
-                        groups: ['documentary']
+                        groups: ['documentary', 'cinema']
                     },
                     {
                         value: 'documentary',
                         label: 'Documentary',
                         emoji: '🎬',
                         groups: ['documentary', 'indie']
+                    },
+                    {
+                        value: 'superhero',
+                        label: 'Superhero',
+                        emoji: '🦸‍♂️',
+                        groups: ['blockbuster', 'cinema', 'friends']
+                    },
+                    {
+                        value: 'mystery',
+                        label: 'Mystery',
+                        emoji: '🕵️‍♂️',
+                        groups: ['alone', 'partner', 'classic']
+                    },
+                    {
+                        value: 'crime',
+                        label: 'Crime',
+                        emoji: '🚓',
+                        groups: ['documentary', 'cinema']
+                    },
+                    {
+                        value: 'biography',
+                        label: 'Biography',
+                        emoji: '👤',
+                        groups: ['documentary', 'indie', 'partner']
+                    },
+                    {
+                        value: 'war',
+                        label: 'War',
+                        emoji: '⚔️',
+                        groups: ['classic', 'alone']
+                    },
+                    {
+                        value: 'sports',
+                        label: 'Sports',
+                        emoji: '🏀',
+                        groups: ['friends', 'blockbuster', 'home']
+                    },
+                    {
+                        value: 'family',
+                        label: 'Family',
+                        emoji: '👨‍👩‍👧‍👦',
+                        groups: ['family', 'home']
+                    },
+                    {
+                        value: 'nature',
+                        label: 'Nature',
+                        emoji: '🌿',
+                        groups: ['documentary', 'mobile']
+                    },
+                    {
+                        value: 'shorts',
+                        label: 'Short Films',
+                        emoji: '⏱️',
+                        groups: ['mobile', 'indie']
+                    },
+                    {
+                        value: 'dark_comedy',
+                        label: 'Dark Comedy',
+                        emoji: '🖤😂',
+                        groups: ['indie', 'alone']
+                    },
+                    {
+                        value: 'cult',
+                        label: 'Cult Classics',
+                        emoji: '📼',
+                        groups: ['classic', 'indie']
+                    },
+                    {
+                        value: 'kids',
+                        label: 'Kids',
+                        emoji: '🧒',
+                        groups: ['family', 'home']
+                    },
+                    {
+                        value: 'feel_good',
+                        label: 'Feel Good',
+                        emoji: '😊',
+                        groups: ['home', 'partner']
                     }
                 ]
             }
