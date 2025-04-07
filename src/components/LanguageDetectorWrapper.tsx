@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import i18n from '../i18n.tsx';
 import { Outlet, useParams } from 'react-router';
+
+import i18n from '../i18n.tsx';
 
 export function LanguageDetectorWrapper() {
     const { quizId, questionId } = useParams();
