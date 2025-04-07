@@ -1,7 +1,11 @@
 import { classNames } from '../utils/classNames.ts';
 import { BubbleOption } from './BubbleOption.tsx';
+import { getBubbleOptions } from '../utils/getBubbleOptions.ts';
+import { useTranslation } from 'react-i18next';
 
-export const Question = ({ question, selected, saveAnswer }) => {
+export const Question = ({ question, selected, saveAnswer, allAnswers }) => {
+    const { t } = useTranslation();
+
     const isSelected = value =>
         Array.isArray(selected) ? selected.includes(value) : selected === value;
 
@@ -43,7 +47,7 @@ export const Question = ({ question, selected, saveAnswer }) => {
                     textAlign: isImage ? 'center' : undefined
                 }}
             >
-                {image && <img src={image} alt={label} width={80} />} {emoji} {label}
+                {image && <img src={image} alt={label} width={80} />} {emoji} {t(label)}
                 {isMultiSelect && (
                     <div
                         className={classNames(
@@ -75,6 +79,14 @@ export const Question = ({ question, selected, saveAnswer }) => {
         );
     };
 
+    const options =
+        question?.type === 'bubble' && allAnswers
+            ? getBubbleOptions(
+                  question?.options,
+                  //not the best solution because we tied up to the answers indexes, should think about how to make it scalable
+                  [allAnswers[2]?.value, allAnswers[3]?.value].flat().filter(Boolean)
+              )
+            : question?.options;
     return (
         <div
             className={classNames(
@@ -83,7 +95,7 @@ export const Question = ({ question, selected, saveAnswer }) => {
                 'flex gap-3'
             )}
         >
-            {question?.options?.map((opt, i) => renderOption(opt, i))}
+            {options?.map((opt, i) => renderOption(opt, i))}
         </div>
     );
 };

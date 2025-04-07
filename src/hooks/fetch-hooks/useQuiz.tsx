@@ -111,61 +111,61 @@ const mockData: QuizData[] = [
                         value: 'romance',
                         label: 'Romance',
                         emoji: '❤️',
-                        groups: ['young_adult', 'adult', 'woman', 'other']
+                        groups: ['young_adult', 'adult', 'female', 'other']
                     },
                     {
                         value: 'fantasy',
                         label: 'Fantasy',
                         emoji: '🐉',
-                        groups: ['young_adult', 'man', 'woman', 'other']
+                        groups: ['young_adult', 'male', 'female', 'other']
                     },
                     {
                         value: 'self_improvement',
                         label: 'Self-Improvement',
                         emoji: '🧠',
-                        groups: ['young_adult', 'adult', 'man', 'woman', 'other']
+                        groups: ['young_adult', 'adult', 'male', 'female', 'other']
                     },
                     {
                         value: 'science_fiction',
                         label: 'Science Fiction',
                         emoji: '🚀',
-                        groups: ['young_adult', 'adult', 'man', 'other']
+                        groups: ['young_adult', 'adult', 'male', 'other']
                     },
                     {
                         value: 'mystery',
                         label: 'Mystery',
                         emoji: '🕵️‍♂️',
-                        groups: ['adult', 'other', 'woman']
+                        groups: ['adult', 'other', 'female']
                     },
                     {
                         value: 'business',
                         label: 'Business',
                         emoji: '💼',
-                        groups: ['adult', 'man', 'woman']
+                        groups: ['adult', 'male', 'female']
                     },
                     {
                         value: 'finance',
                         label: 'Finance',
                         emoji: '💰',
-                        groups: ['adult', 'man']
+                        groups: ['adult', 'male']
                     },
                     {
                         value: 'technology',
                         label: 'Technology',
                         emoji: '💻',
-                        groups: ['young_adult', 'adult', 'man', 'other']
+                        groups: ['young_adult', 'adult', 'male', 'other']
                     },
                     {
                         value: 'biography',
                         label: 'Biography',
                         emoji: '👤',
-                        groups: ['adult', 'senior', 'man', 'woman']
+                        groups: ['adult', 'senior', 'male', 'female']
                     },
                     {
                         value: 'history',
                         label: 'History',
                         emoji: '📜',
-                        groups: ['other', 'senior', 'man', 'woman']
+                        groups: ['other', 'senior', 'male', 'female']
                     },
                     {
                         value: 'philosophy',
@@ -177,55 +177,55 @@ const mockData: QuizData[] = [
                         value: 'psychology',
                         label: 'Psychology',
                         emoji: '🧩',
-                        groups: ['young_adult', 'adult', 'other', 'man', 'woman']
+                        groups: ['young_adult', 'adult', 'other', 'male', 'female']
                     },
                     {
                         value: 'health_fitness',
                         label: 'Health & Fitness',
                         emoji: '🏋️‍♂️',
-                        groups: ['adult', 'man', 'woman']
+                        groups: ['adult', 'male', 'female']
                     },
                     {
                         value: 'spirituality',
                         label: 'Spirituality',
                         emoji: '🔮',
-                        groups: ['other', 'senior', 'woman']
+                        groups: ['other', 'senior', 'female']
                     },
                     {
                         value: 'cooking',
                         label: 'Cooking',
                         emoji: '🍳',
-                        groups: ['senior', 'woman', 'man']
+                        groups: ['senior', 'female', 'male']
                     },
                     {
                         value: 'travel',
                         label: 'Travel',
                         emoji: '🌍',
-                        groups: ['young_adult', 'adult', 'woman', 'other']
+                        groups: ['young_adult', 'adult', 'female', 'other']
                     },
                     {
                         value: 'art',
                         label: 'Art',
                         emoji: '🎨',
-                        groups: ['other', 'senior', 'woman']
+                        groups: ['other', 'senior', 'female']
                     },
                     {
                         value: 'poetry',
                         label: 'Poetry',
                         emoji: '✒️',
-                        groups: ['senior', 'woman']
+                        groups: ['senior', 'female']
                     },
                     {
                         value: 'parenting',
                         label: 'Parenting',
                         emoji: '👶',
-                        groups: ['senior', 'woman', 'man']
+                        groups: ['senior', 'female', 'male']
                     },
                     {
                         value: 'education',
                         label: 'Education',
                         emoji: '📚',
-                        groups: ['other', 'senior', 'woman', 'man']
+                        groups: ['other', 'senior', 'female', 'male']
                     },
                     {
                         value: 'environmental',

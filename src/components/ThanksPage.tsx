@@ -3,16 +3,18 @@ import { useNavigate, useParams } from 'react-router';
 import { classNames } from '../utils/classNames.ts';
 import thanksImage from '../assets/thanksImage.png';
 import { DownloadButton } from './common/DownloadButton.tsx';
+import { useTranslation } from 'react-i18next';
 
 export const ThanksPage = () => {
     const { quizId } = useParams();
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const answersKey = `quiz-${quizId}-answers`;
 
     const handleRetakeQuiz = () => {
         localStorage.removeItem(answersKey);
-        navigate(`/quiz/${quizId}`);
+        navigate(`/quiz/${quizId}/1`);
     };
 
     return (
@@ -25,10 +27,10 @@ export const ThanksPage = () => {
                             'text-[#F2F3F5]'
                         )}
                     >
-                        Thank you!
+                        {t('Thank you!')}
                     </h2>
                     <p className="text-center text-[17px] lh-[24px] text-[#C4C8CC]">
-                        for supporting us and passing quiz
+                        {t('for supporting us and passing quiz')}
                     </p>
                 </div>
                 <div className="flex justify-center items-center">
@@ -37,7 +39,7 @@ export const ThanksPage = () => {
             </div>
             <div className="flex flex-col gap-4">
                 <DownloadButton />
-                <Button text={'Retake quiz'} onClick={handleRetakeQuiz} />
+                <Button text={t('Retake quiz')} onClick={handleRetakeQuiz} />
             </div>
         </div>
     );

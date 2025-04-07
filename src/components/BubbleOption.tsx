@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export type BubbleOptionProps = {
     value: string;
@@ -17,6 +18,8 @@ export const BubbleOption: React.FC<BubbleOptionProps> = ({
     onClick,
     index
 }) => {
+    const { t } = useTranslation();
+
     return (
         <button
             onClick={() => onClick(value)}
@@ -26,7 +29,7 @@ export const BubbleOption: React.FC<BubbleOptionProps> = ({
         ${index % 4 === 1 || index % 4 === 3 ? 'mt-4' : ''}`}
         >
             <span className="text-2xl">{emoji}</span>
-            <span className="text-xs mt-1 text-center leading-tight px-1">{label}</span>
+            <span className="text-xs mt-1 text-center leading-tight px-1">{t(label)}</span>
         </button>
     );
 };

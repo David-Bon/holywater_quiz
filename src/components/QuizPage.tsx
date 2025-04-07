@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { QuizQuestion, useQuiz } from '../hooks/fetch-hooks/useQuiz.tsx';
 import { useQuestionNavigation } from '../hooks/useQuestionNavigation.tsx';
@@ -10,6 +11,8 @@ import { Button } from './common/Button.tsx';
 
 export const QuizPage = () => {
     const { quizData, getQuizData, isLoading } = useQuiz();
+    const { t } = useTranslation();
+
     const { currentQuestionId, currentIndex, goNext, goBack, quizId } =
         useQuestionNavigation(quizData);
 
@@ -17,7 +20,7 @@ export const QuizPage = () => {
         return quizData?.find(q => q.id === currentQuestionId) as QuizQuestion;
     }, [currentQuestionId, quizData]);
 
-    const { selected, saveAnswer } = useQuizAnswer({
+    const { selected, saveAnswer, allAnswers } = useQuizAnswer({
         quizId,
         questionId: currentQuestionId,
         question
@@ -64,19 +67,24 @@ export const QuizPage = () => {
                             question?.subtitle ? 'text-[#F2F3F5]' : 'text-white'
                         )}
                     >
-                        {question?.title}
+                        {t(question?.title)}
                     </h2>
                     <p className="text-center text-[17px] lh-[24px] text-[#C4C8CC]">
-                        {question?.subtitle}
+                        {t(question?.subtitle as string)}
                     </p>
                 </div>
 
                 <div className="mb-6">
                     {/* Render custom input per type */}
-                    <Question question={question} selected={selected} saveAnswer={saveAnswer} />
+                    <Question
+                        question={question}
+                        selected={selected}
+                        saveAnswer={saveAnswer}
+                        allAnswers={allAnswers}
+                    />
                 </div>
             </div>
-            <Button onClick={goNext} disabled={!selected} text={'Next'} />
+            <Button onClick={goNext} disabled={!selected} text={t('Next')} />
         </div>
     );
 };

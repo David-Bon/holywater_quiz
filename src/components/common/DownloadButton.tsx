@@ -2,9 +2,11 @@ import { useParams } from 'react-router';
 
 import downloadIcon from '../../assets/download.png';
 import { downloadCsvFromLocalStorage } from '../../utils/downloadCsvFromLocalStorage.ts';
+import { useTranslation } from 'react-i18next';
 
 export const DownloadButton = () => {
     const { quizId } = useParams();
+    const { t } = useTranslation();
 
     return (
         <button
@@ -12,7 +14,7 @@ export const DownloadButton = () => {
             onClick={() => downloadCsvFromLocalStorage(quizId as string)}
         >
             <img width={42} height={42} src={downloadIcon} alt="" />
-            <span>Download my answers</span>
+            <span>{t('Download my answers')}</span>
         </button>
     );
 };

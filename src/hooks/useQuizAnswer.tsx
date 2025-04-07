@@ -16,11 +16,13 @@ type Props = {
 export const useQuizAnswer = ({ quizId, questionId, question }: Props) => {
     const key = `quiz-${quizId}-answers`;
     const [selected, setSelected] = useState<string | string[] | null>(null);
+    const [allAnswers, setAllAnswers] = useState<Record<string, any>>({});
 
     useEffect(() => {
         const stored = localStorage.getItem(key);
         if (stored) {
             const parsed = JSON.parse(stored);
+            setAllAnswers(parsed);
             setSelected(parsed[questionId]?.value ?? null);
         }
     }, [key, questionId]);
@@ -73,8 +75,21 @@ export const useQuizAnswer = ({ quizId, questionId, question }: Props) => {
             setSelected(value);
         }
 
+        // Clear all answers for subsequent questions
+        if (questionId !== undefined && questionId !== null) {
+            const questionIndex =
+                typeof questionId === 'number' ? questionId : parseInt(questionId);
+            Object.keys(parsed).forEach(key => {
+                const keyIndex = parseInt(key);
+                if (!isNaN(keyIndex) && keyIndex > questionIndex) {
+                    delete parsed[key];
+                }
+            });
+        }
+
+        setAllAnswers(parsed);
         localStorage.setItem(key, JSON.stringify(parsed));
     };
 
-    return { selected, saveAnswer };
+    return { selected, saveAnswer, allAnswers };
 };

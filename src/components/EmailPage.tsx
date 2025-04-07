@@ -1,8 +1,10 @@
 import { classNames } from '../utils/classNames.ts';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from './common/Button.tsx';
 import { useQuizAnswer } from '../hooks/useQuizAnswer.tsx';
 import { useNavigate, useParams } from 'react-router';
+import CircularLoader from './common/CircularLoader.tsx';
+import { useTranslation } from 'react-i18next';
 
 // RFC 5322-compliant email regex
 const emailRegex =
@@ -14,15 +16,27 @@ export const EmailPage = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [touched, setTouched] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const { t } = useTranslation();
+
     const { saveAnswer } = useQuizAnswer({ quizId, questionId: 'email' });
     const isValid = emailRegex.test(email);
     const showError = touched && email.length > 0 && !isValid;
+
+    useEffect(() => {
+        const timer = setTimeout(() => setLoading(false), 5000);
+        return () => clearTimeout(timer);
+    }, []);
 
     const handleClick = () => {
         if (!isValid) return;
         saveAnswer(email, { title: 'Email', type: 'email', label: email });
         navigate(`/quiz/${quizId}/thanks`);
     };
+
+    if (loading) {
+        return <CircularLoader />;
+    }
 
     return (
         <div className="flex flex-col w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[800px] justify-between h-full m-auto">
@@ -34,10 +48,10 @@ export const EmailPage = () => {
                             'text-[#F2F3F5]'
                         )}
                     >
-                        Email
+                        {t('Email')}
                     </h2>
                     <p className="text-center text-[17px] lh-[24px] text-[#C4C8CC]">
-                        Enter your email to get full access
+                        {t('Enter your email to get full access')}
                     </p>
                 </div>
 
@@ -47,7 +61,7 @@ export const EmailPage = () => {
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         onBlur={() => setTouched(true)}
-                        placeholder="Your email"
+                        placeholder={t('Your email')}
                         className={classNames(
                             'w-full py-[26px] px-[20px] text-[17px] rounded-[16px] outline-none border-[2px]',
                             isValid
@@ -59,16 +73,16 @@ export const EmailPage = () => {
 
                 {showError && (
                     <div className="mb-6 text-[14px] text-[#E4229B] text-center">
-                        Please enter a valid email address.
+                        {t('Please enter a valid email address.')}
                     </div>
                 )}
 
                 <div className="mb-6 text-[12px] lh-[18px] text-center text-[#B6B8C3]">
-                    By continuing I agree with Privacy policy and Terms of use.
+                    {t('By continuing I agree with Privacy policy and Terms of use.')}
                 </div>
             </div>
 
-            <Button onClick={handleClick} disabled={!isValid} text={'Next'} />
+            <Button onClick={handleClick} disabled={!isValid} text={t('Next')} />
         </div>
     );
 };
