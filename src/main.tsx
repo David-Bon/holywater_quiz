@@ -6,6 +6,7 @@ import { QuizPage } from './components/QuizPage.tsx';
 import { EmailPage } from './components/EmailPage.tsx';
 import { ThanksPage } from './components/ThanksPage.tsx';
 import { LanguageDetectorWrapper } from './components/LanguageDetectorWrapper.tsx';
+import { NotFoundPage } from './components/common/NotFoundPage.tsx';
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
                 element: <ThanksPage />
             }
         ]
+    },
+    {
+        path: '*',
+        element: <NotFoundPage />
     }
 ]);
 
